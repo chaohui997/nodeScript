@@ -91,6 +91,7 @@ function clone_and_install_repos() {
 
 # 创建钱包
 function create_wallet() {
+	chmod 777 $HOME/.vana/*
     echo "创建钱包..."
     vanacli wallet create --wallet.name default --wallet.hotkey default
 
