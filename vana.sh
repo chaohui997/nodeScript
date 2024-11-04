@@ -122,6 +122,7 @@ function export_private_keys() {
 function generate_encryption_keys() {
     echo "生成加密密钥..."
     cd $DLP_PATH
+	chomod 777 keygen.sh
     ./keygen.sh
 }
 
