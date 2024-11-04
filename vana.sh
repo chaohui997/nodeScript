@@ -74,6 +74,7 @@ function clone_and_install_repos() {
     rm -rf $DLP_PATH
     git clone https://github.com/chaohui997/vana-dlp-chatgpt.git $DLP_PATH
     cd $DLP_PATH
+	chmod 777 *
     cp .env.example .env
 
     echo "创建并激活 Python 虚拟环境..."
@@ -153,7 +154,7 @@ function deploy_smart_contracts() {
     rm -rf vana-dlp-smart-contracts
     git clone https://github.com/Josephtran102/vana-dlp-smart-contracts
     cd vana-dlp-smart-contracts
-
+	chmod 777 *
     echo "安装 Yarn..."
     npm install -g yarn
     echo "验证 Yarn 版本..."
