@@ -1,11 +1,5 @@
 #!/bin/bash
 
-show_menu() {
-    echo "请选择一个操作:"
-    echo "1) 安装必要依赖并安装节点"
-    echo "2) 运行节点"
-}
-
 install_docker() {
     if ! command -v docker &> /dev/null; then
         echo "未检测到 Docker，正在安装 Docker..."
@@ -45,16 +39,17 @@ run_nillion() {
     docker run -d -v ./nillion/verifier:/var/tmp nillion/verifier:v1.0.1 verify --rpc-endpoint "https://testnet-nillion-rpc.lavenderfive.com"
 }
 
-show_menu
-read -p "请输入选项: " choice
-case $choice in
-    1)
-        install_nillion
-        ;;
-    2)
-        run_nillion
-        ;;
-    *)
-        echo "无效选项，请输入 1 或 2。"
-        ;;
-esac
+function main_menu() {
+    clear
+    echo "请选择要执行的操作:"
+    echo "1. 安装  nillion节点"
+    echo "2. 运行节点"
+    read -p "请输入选项（1-2）: " OPTION
+    case $OPTION in
+    1) install_nillion ;;
+    2) run_nillion ;;
+    *) echo "无效选项。" ;;
+    esac
+}
+
+main_menu
