@@ -22,7 +22,7 @@ check_resources() {
 while true; do
    date "+%Y-%m-%d %H:%M:%S 开始挖矿..." | tee -a "$LOG_FILE"
    check_resources
-   ./iniminer-linux-x64 --pool stratum+tcp://0xf29Eb3c363F9E4cfF41074C753f3fE62A470F4c2.Worker001@pool-core-testnet.inichain.com:32672 --cpu-devices 1 --cpu-devices 2 --cpu-devices 3 --cpu-devices 4
+   ./iniminer-linux-x64 --pool stratum+tcp://0xf29Eb3c363F9E4cfF41074C753f3fE62A470F4c2.Worker001@pool-b.yatespool.com:32488 --cpu-devices 1 --cpu-devices 2 --cpu-devices 3 --cpu-devices 4
    EXIT_CODE=$?
    date "+%Y-%m-%d %H:%M:%S 挖矿程序退出，状态码: $EXIT_CODE" | tee -a "$LOG_FILE"
    echo "5秒后重启程序..." | tee -a "$LOG_FILE"
